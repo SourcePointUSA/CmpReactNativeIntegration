@@ -11,6 +11,7 @@
 ### Running your React Native application
 #### Step 1:
 ```shell
+  npm install
   npx react-native start
 ```
 
