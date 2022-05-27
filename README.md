@@ -1,17 +1,23 @@
-# CmpReactNativeIntegration
+# Cmp React Native Integration
 
-## Run instructions for Android:
-  • Have an Android emulator running (quickest way to get started), or a device connected.
-  
-  • cd CmpReactNativeIntegration && npx react-native run-android
+# Table of Contents
+- [Key Concepts](#key-concepts)
+- [Android Integration](#android-integration)
+- [Ios Integration](#ios-integration)
 
-## Run instructions for iOS:
-  • cd CmpReactNativeIntegration && npx react-native run-ios
-  
-  or
-  
-  • Open CmpReactNativeIntegration/ios/CmpReactNativeIntegration.xcworkspace in Xcode or run "xed -b ios"
-  • Hit the Run button
+# Key Concepts
+React Native is an open source framework for building Android and iOS applications, for this reason, we provided different
+ways to integrate successfully our SDK into your cross-platform app.
 
-## Run instructions for macOS:
-  • See https://aka.ms/ReactNativeGuideMacOS for the latest up-to-date instructions.
+# Android Integration
+From the Android point of view, we can accomplish it using the soft integration or the direct integration.
+
+[The Soft Integration](docs/ANDROID_SOFT_INTEGRATION.md) offer a solution which allows the client app to write the Cmp SDK configuration 
+into extra Activity letting the ReactNative main Activity run in isolation.
+
+[The Direct Integration](docs/ANDROID_DIRECT_INTEGRATION.md) is the traditional way for integration our SDK using the ReactNative main Activity.
+
+# Ios Integration
+From the Ios side, the [integration](docs/IOS_INTEGRATION.md) is performed using a custom ViewController which make the process 
+easy and straightforward.
+
