@@ -17,7 +17,7 @@
 #### Step 2:
 ```shell
   npx react-native run-ios # on ios
-  npx react-native run-ios # on android
+  npx react-native run-android # on android
 ```
 
 ## Run instructions for Android:
@@ -37,7 +37,7 @@ or
 
 #### Method 2
 - Open `CmpReactNativeIntegration/ios/CmpReactNativeIntegration.xcworkspace` in Xcode or run ``xed -b ios``
-- Hit the Run button
+- Hit the `Run` button
 
 ## Run instructions for macOS:
 - See https://aka.ms/ReactNativeGuideMacOS for the latest up-to-date instructions.
