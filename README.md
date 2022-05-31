@@ -12,8 +12,8 @@ ways to integrate successfully our SDK into your cross-platform app.
 # Android Integration
 From the Android point of view, we can accomplish it using the soft integration or the direct integration.
 
-[The Soft Integration](AndroidSoftIntegration.md) offer a solution which allows the client app to isolate the ReactNative main Activity creating an
-extra Activity which contains our SDK configuration.
+[The Soft Integration](AndroidSoftIntegration.md) offer a solution which allows the client app to write the Cmp SDK configuration 
+into extra Activity letting the ReactNative main Activity run in isolation.
 
 [The Direct Integration](AndroidDirectIntegration.md) is the traditional way for integration our SDK using the ReactNative main Activity.
 
