@@ -10,7 +10,7 @@ React Native is an open source framework for building Android and iOS applicatio
 ways to integrate successfully our SDK into your cross-platform app.
 
 # Android Integration
-From the Android point of view, we can accomplish it using, the soft integration, or, the direct integration.
+From the Android point of view, we can accomplish it using the soft integration or the direct integration.
 
 [The Soft Integration](AndroidSoftIntegration.md) offer a solution which allows the client app to isolate the ReactNative main Activity creating an
 extra Activity which contains our SDK configuration.
