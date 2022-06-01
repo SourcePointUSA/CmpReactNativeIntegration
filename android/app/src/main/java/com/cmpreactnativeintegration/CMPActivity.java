@@ -1,55 +1,27 @@
-# Android Soft Integration
+package com.cmpreactnativeintegration;
 
-# Table of Contents
-- [How to Install](#how-to-install)
-- [The CmpMainActivity](#the-cmpMainActivity)
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import com.sourcepoint.cmplibrary.NativeMessageController;
+import com.sourcepoint.cmplibrary.SpClient;
+import com.sourcepoint.cmplibrary.SpConsentLib;
+import com.sourcepoint.cmplibrary.core.nativemessage.MessageStructure;
+import com.sourcepoint.cmplibrary.creation.FactoryKt;
+import com.sourcepoint.cmplibrary.creation.SpConfigDataBuilder;
+import com.sourcepoint.cmplibrary.data.network.util.CampaignsEnv;
+import com.sourcepoint.cmplibrary.exception.CampaignType;
+import com.sourcepoint.cmplibrary.model.ConsentAction;
+import com.sourcepoint.cmplibrary.model.MessageLanguage;
+import com.sourcepoint.cmplibrary.model.PMTab;
+import com.sourcepoint.cmplibrary.model.exposed.SPConsents;
+import com.sourcepoint.cmplibrary.model.exposed.SpCampaign;
+import com.sourcepoint.cmplibrary.model.exposed.SpConfig;
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
-# How to Install
-To use `cmplibrary` in your ReactNative app, include `com.sourcepoint.cmplibrary:cmplibrary:x.y.z` as a dependency to 
-the android project's build.gradle file and reload your gradle dependencies.
+import java.util.Collections;
 
-```
-...
-dependencies {
-    implementation 'com.sourcepoint.cmplibrary:cmplibrary:X.Y.Z'
-}
-```
-
-Current SDK version:
-
-[![Maven Central](https://img.shields.io/maven-central/v/com.sourcepoint.cmplibrary/cmplibrary)](https://search.maven.org/search?q=g:com.sourcepoint.cmplibrary)
-
-# The CmpMainActivity
-
-In order to surface the Cmp dialog, it is necessary having a support activity which contains the SDK configuration and 
-the instance object of our SDK.
-
-First we need a layout for our support activity, you can create an empty layout or using the following one which 
-contains a simple `ProgressBar`
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/cmp_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:visibility="visible"
-        android:orientation="horizontal">
-
-    <ProgressBar
-            android:id="@+id/spinner"
-            android:layout_height="75dp"
-            android:layout_width="75dp"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            android:layout_centerInParent="true" />
-</RelativeLayout>
-```
-
-Now we can create a support activity with the SDK config:
-
-```java
 public class CMPActivity extends Activity {
 
     final private SpConfig mSpConfig = new SpConfigDataBuilder()
@@ -146,22 +118,3 @@ public class CMPActivity extends Activity {
         public void onConsentReady(SPConsents consents) { }
     }
 }
-```
-
-and declare it into the `AndroidManifest.xml`
-
-```xml
-<manifest>
-    ...
-    <application>
-        ...
-        <activity
-                android:name=".CMPActivity"
-                android:theme="@style/Theme.AppCompat.Transparent.NoActionBar"
-                android:exported="false"
-                android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        ...
-    </application>
-    ...
-</manifest>
-```
