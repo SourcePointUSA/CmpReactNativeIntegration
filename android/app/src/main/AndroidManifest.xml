@@ -22,5 +22,12 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+
+        <activity
+                android:name=".CMPActivity"
+                android:theme="@style/Theme.AppCompat.Transparent.NoActionBar"
+                android:exported="false"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
     </application>
 </manifest>

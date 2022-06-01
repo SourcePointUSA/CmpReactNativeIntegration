@@ -1,5 +1,7 @@
 package com.cmpreactnativeintegration;
 
+import android.content.Intent;
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -27,6 +29,15 @@ public class MainActivity extends ReactActivity {
   public static class MainActivityDelegate extends ReactActivityDelegate {
     public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
       super(activity, mainComponentName);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+
+      // soft integration
+      Intent myIntent = new Intent(getPlainActivity(), CMPActivity.class);
+      getPlainActivity().startActivity(myIntent);
     }
 
     @Override

@@ -3,8 +3,9 @@
 # Table of Contents
 - [How to Install](#how-to-install)
 - [The CmpMainActivity](#the-cmpMainActivity)
+- [Load the First Layer Message](#load-the-first-layer-message)
 
-# How to Install
+## How to Install
 To use `cmplibrary` in your ReactNative app, include `com.sourcepoint.cmplibrary:cmplibrary:x.y.z` as a dependency to 
 the android project's build.gradle file and reload your gradle dependencies.
 
@@ -19,7 +20,7 @@ Current SDK version:
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.sourcepoint.cmplibrary/cmplibrary)](https://search.maven.org/search?q=g:com.sourcepoint.cmplibrary)
 
-# The CmpMainActivity
+## The CmpMainActivity
 
 In order to surface the Cmp dialog, it is necessary having a support activity which contains the SDK configuration and 
 the instance object of our SDK.
@@ -148,7 +149,7 @@ public class CMPActivity extends Activity {
 }
 ```
 
-and declare it into the `AndroidManifest.xml`
+Declare it into the `AndroidManifest.xml`
 
 ```xml
 <manifest>
@@ -165,3 +166,56 @@ and declare it into the `AndroidManifest.xml`
     ...
 </manifest>
 ```
+
+and add the following style into your `style.xml` file
+
+```xml
+<resources>
+    ...
+    <style name="Theme.AppCompat.Transparent.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    ...
+</resources>
+```
+
+
+## Load the First Layer Message
+In order to surface the FLM, we need to invoke the support activity from the `onCreate` callback of the ReactNative 
+`ReactActivityDelegate` located into the `MainActivity` of the `android` folder.
+
+This is how the `ReactActivityDelegate` should look like
+
+```java
+    public static class MainActivityDelegate extends ReactActivityDelegate {
+        public MainActivityDelegate(ReactActivity activity, String mainComponentName) {
+            super(activity, mainComponentName);
+        }
+        
+        // ...
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            // soft integration
+            Intent myIntent = new Intent(getPlainActivity(), CMPActivity.class);
+            getPlainActivity().startActivity(myIntent);
+        }
+
+        // ...
+    }
+```
+
+The reason why we use the `onCreate` callback in the `Soft Integratio` is that we need to avoid a loop in case, 
+for instance, the FLM contains a `Cancel` button.
+
+
+
+
