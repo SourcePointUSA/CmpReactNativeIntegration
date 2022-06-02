@@ -1,11 +1,13 @@
 # Android Soft Integration
 
-# Table of Contents
-- [How to Install](#how-to-install)
-- [The CmpMainActivity](#the-cmpMainActivity)
+## Table of Contents
+- [How to Install the CMP SDK](#how-to-install-the-cmp-sdk)
+- [The support CmpMainActivity](#the-support-cmpMainActivity)
 - [Load the First Layer Message](#load-the-first-layer-message)
+- [Load the Privacy Manager](#load-the-privacy-manager)
+- [The full example android project](https://github.com/SourcePointUSA/CmpReactNativeIntegration/tree/soft/android)
 
-## How to Install
+## How to Install the CMP SDK
 To use `cmplibrary` in your ReactNative app, include `com.sourcepoint.cmplibrary:cmplibrary:x.y.z` as a dependency to 
 the android project's build.gradle file and reload your gradle dependencies.
 
@@ -20,7 +22,7 @@ Current SDK version:
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.sourcepoint.cmplibrary/cmplibrary)](https://search.maven.org/search?q=g:com.sourcepoint.cmplibrary)
 
-## The CmpMainActivity
+## The support CmpMainActivity
 
 In order to surface the Cmp dialog, it is necessary having a support activity which contains the SDK configuration and 
 the instance object of our SDK.
@@ -215,6 +217,8 @@ This is how the `ReactActivityDelegate` should look like
 
 The reason why we use the `onCreate` callback in the `Soft Integratio` is that we need to avoid a loop in case, 
 for instance, the FLM contains a `Cancel` button.
+
+## Load the Privacy Manager
 
 
 

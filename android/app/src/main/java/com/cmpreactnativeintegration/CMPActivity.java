@@ -36,7 +36,7 @@ public class CMPActivity extends Activity {
 
     private SpConsentLib mSpConsentLib = null;
     private View mSpinner = null;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class CMPActivity extends Activity {
         mSpinner = findViewById(R.id.spinner);
 
         mSpConsentLib = FactoryKt.makeConsentLib(mSpConfig, this, new LocalClient());
+
     }
 
     @Override
