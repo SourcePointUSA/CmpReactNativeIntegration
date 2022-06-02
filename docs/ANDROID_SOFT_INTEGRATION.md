@@ -86,13 +86,6 @@ public class CMPActivity extends Activity {
         mSpConsentLib.loadMessage();
     }
 
-    public void disposeCmpLib(){
-        if (mSpConsentLib != null) {
-            mSpConsentLib.dispose();
-            mSpConsentLib = null;
-        }
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -147,6 +140,13 @@ public class CMPActivity extends Activity {
 
         @Override
         public void onConsentReady(SPConsents consents) { }
+    }
+    
+    private void disposeCmpLib(){
+        if (mSpConsentLib != null) {
+            mSpConsentLib.dispose();
+            mSpConsentLib = null;
+        }
     }
 }
 ```
