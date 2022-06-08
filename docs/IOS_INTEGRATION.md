@@ -1,6 +1,7 @@
 # Ios Integration
 
 ## Table of Contents
+- [What we are aiming for?](#what-we-are-aiming-for?)
 - [How to Install the CMP SDK](#how-to-install-the-cmp-sdk)
 - [The support CmpViewController](#the-support-cmpViewController)
 - [Load the First Layer Message](#load-the-first-layer-message)
@@ -9,6 +10,11 @@
   - [Calling native module from Javascript](#calling-native-module-from-javascript)
   - [Surfacing the Privacy Manager from the SpModule](#surface-the-privacy-manager-from-the-spmodule)
 - [The full example IOS project](https://github.com/SourcePointUSA/CmpReactNativeIntegration/tree/soft/ios)
+
+# What we are aiming for?
+The purpose of this document is to show you how to integrate our SDK using a test property, at the end you'll have the following result
+
+<img src="main.png" width=20% height=20%/> <img src="gdpr.png" width=20% height=20%/> <img src="ccpa.png" width=20% height=20%/>
 
 ## How to Install the CMP SDK
 
@@ -312,7 +318,3 @@ class CmpViewController: UIViewController {
 
 }
 ```
-
-This is the final result
-
-<img src="main.png" width=20% height=20%/> <img src="gdpr.png" width=20% height=20%/> <img src="ccpa.png" width=20% height=20%/>
