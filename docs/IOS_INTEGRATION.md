@@ -315,6 +315,6 @@ class CmpViewController: UIViewController {
 
 This is the final result
 
-![](main.png) 
-![](gdpr.png) 
-![](ccpa.png) 
+<img src="main.png" width=50% height=50%/>
+<img src="gdpr.png" width=50% height=50%/>
+<img src="ccpa.png" width=50% height=50%/>
