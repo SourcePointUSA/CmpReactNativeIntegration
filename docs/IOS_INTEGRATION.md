@@ -147,16 +147,16 @@ To overcome the cross-platform communication challenge we make use of the [Nativ
 
 ### The IOS Native Modules
 
-The first step, is creating the function that you need on native part like an implementation on native apps. We will create a File called `SpModule.swift` on ios folder from our React Native app.
+The first step, is the creation of the function that you need on native part like an implementation on native apps. We will create a file called `SpModule.swift` on ios folder from our React Native app.
 
 
 The `SpModule.swift` has all the functions that we need to expose to the Javascript side. In our example, we have three 
 buttons, two of them surface a GDPR and a CCPA Privacy Manager and one of them is clearing the saved local data:
-- `showCcpaPm`: surface the CCPA PM,
-- `showGdprPm`: surface the GDPR PM,
-- `clearData`: delete local data.
+- `showCcpaPm`: surfaces the CCPA PM,
+- `showGdprPm`: surfaces the GDPR PM,
+- `clearData`: deletes local data.
 
-Moreover, we need to create a requiresMainQueueSetup to manage our queue on main thread.
+Moreover, we need to implement a `requiresMainQueueSetup` function to manage our queue on main thread.
 
 ```swift
 import Foundation
@@ -181,10 +181,10 @@ class SpModule : NSObject {
 
 ```
 
-Note that we add @objc for the module and all its function, this means that this module and those functions will be 
+Note that we add `@objc` for the module and all its function, this means that this module and those functions will be 
 called on Objective-C and you need these declarations to work as expected.
 
-To expose our swift module to the Javascript side we need an `obj-c` bridge to connect the two world. Following the obj-c
+To expose our swift module to the Javascript side we need an `obj-c` bridge to connect the two worlds. Following the Objective-C
 instance you need:
 
 ```obj-c
@@ -206,7 +206,7 @@ RCT_EXTERN_METHOD(showCcpaPm)
 
 ## Calling native module from Javascript
 
-To be able to use native methods, we need to use NativeModules from react-native.
+To be able to execute the native methods, we need to use the NativeModules from react-native.
 
 In your `App.js` file import the module that we just created:
 
@@ -229,7 +229,7 @@ Now you can invoke the functions using the `SpModule` object as follows:
 
 In this scenario the main obstacle is that the `SpModule` doesn't have any instance of our cmp SDK, the SDK reference
 is in `CmpViewController`. To establish the communication between the `SpModule` and the `CmpViewController`, we can use
-a notification dispatch mechanism for broadcasting of information to registered observers, the `NotificationCenter`.
+a notification dispatch mechanism for broadcasting information to the registered observers, the `NotificationCenter`.
 Following the full `SpModule`
 
 ```swift
