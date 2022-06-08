@@ -315,4 +315,4 @@ class CmpViewController: UIViewController {
 
 This is the final result
 
-| <img src="main.png" width=20% height=20%/>   	|<img src="gdpr.png" width=20% height=20%/> | <img src="ccpa.png" width=20% height=20%/> 	|
+<img src="main.png" width=20% height=20%/> <img src="gdpr.png" width=20% height=20%/> <img src="ccpa.png" width=20% height=20%/> 	|
