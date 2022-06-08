@@ -12,7 +12,7 @@
 - [The full example IOS project](https://github.com/SourcePointUSA/CmpReactNativeIntegration/tree/soft/ios)
 
 # What we are aiming for
-The purpose of this document is to show you how to integrate our SDK using a test property, at the end you'll have the following result
+The purpose of this document is to show you how to integrate our SDK in a ReactNative application using a test property, at the end you'll have the following result
 
 <img src="main.png" width=20% height=20%/> <img src="gdpr.png" width=20% height=20%/> <img src="ccpa.png" width=20% height=20%/>
 
