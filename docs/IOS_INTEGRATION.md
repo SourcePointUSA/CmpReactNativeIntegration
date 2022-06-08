@@ -1,7 +1,7 @@
 # Ios Integration
 
 ## Table of Contents
-- [What we are aiming for?](#what-we-are-aiming-for?)
+- [What we are aiming for?](#what-we-are-aiming-for-?)
 - [How to Install the CMP SDK](#how-to-install-the-cmp-sdk)
 - [The support CmpViewController](#the-support-cmpViewController)
 - [Load the First Layer Message](#load-the-first-layer-message)
