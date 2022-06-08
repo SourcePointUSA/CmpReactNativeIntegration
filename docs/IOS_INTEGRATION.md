@@ -312,3 +312,9 @@ class CmpViewController: UIViewController {
 
 }
 ```
+
+This is the final result
+
+![](main.png) 
+![](gdpr.png) 
+![](ccpa.png) 
