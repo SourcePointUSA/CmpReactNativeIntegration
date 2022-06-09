@@ -263,7 +263,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     // Cmp SDK
-    implementation 'com.sourcepoint.cmplibrary:cmplibrary:6.6.0'
+    implementation 'com.sourcepoint.cmplibrary:cmplibrary:6.6.1'
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
