@@ -15,6 +15,8 @@
 The Soft integration is employed whenever, for some reason, the SDK configuration needs to be outside the android `MainActivity` 
 which is used from the ReactNative framework.
 
+Following the final result:
+
 <img src="soft_main.png" width=20% height=20%/> <img src="soft_gdpr.png" width=20% height=20%/> <img src="soft_ccpa.png" width=20% height=20%/>
 
 ## How to Install the CMP SDK
@@ -233,3 +235,4 @@ for instance, the FLM contains a `Cancel` button.
 
 
 
+  
