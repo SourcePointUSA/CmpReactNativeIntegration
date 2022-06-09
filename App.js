@@ -62,6 +62,8 @@
  
    const backgroundStyle = {
      backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+     width: '100%', 
+     height: '100%'
    };
  
    const styles = StyleSheet.create({

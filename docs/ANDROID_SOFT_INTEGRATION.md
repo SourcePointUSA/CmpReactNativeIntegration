@@ -1,11 +1,21 @@
 # Android Soft Integration
 
 ## Table of Contents
+- [What we are aiming for](#what-we-are-aiming-for)
 - [How to Install the CMP SDK](#how-to-install-the-cmp-sdk)
-- [The support CmpMainActivity](#the-support-cmpMainActivity)
+- [The support CmpMainActivity](#the-support-CmpMainActivity)
 - [Load the First Layer Message](#load-the-first-layer-message)
 - [Load the Privacy Manager](#load-the-privacy-manager)
+    - [The Android Native Modules](#the-android-native-modules)
+    - [Calling native module from Javascript](#calling-native-module-from-javascript)
+    - [Surfacing the Privacy Manager from the SpModule](#surface-the-privacy-manager-from-the-spmodule)
 - [The full example android project](https://github.com/SourcePointUSA/CmpReactNativeIntegration/tree/soft/android)
+
+## What we are aiming for
+The Soft integration is employed whenever, for some reason, the SDK configuration needs to be outside the android `MainActivity` 
+which is used from the ReactNative framework.
+
+<img src="soft_main.png" width=20% height=20%/> <img src="soft_gdpr.png" width=20% height=20%/> <img src="soft_ccpa.png" width=20% height=20%/>
 
 ## How to Install the CMP SDK
 To use `cmplibrary` in your ReactNative app, include `com.sourcepoint.cmplibrary:cmplibrary:x.y.z` as a dependency to 
