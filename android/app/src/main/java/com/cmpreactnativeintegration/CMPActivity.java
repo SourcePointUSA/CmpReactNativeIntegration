@@ -51,9 +51,17 @@ public class CMPActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        // adding logic to choose which api to trigger
-//        mSpConsentLib.loadPrivacyManager("1234", PMTab.DEFAULT, CampaignType.GDPR);
-        mSpConsentLib.loadMessage();
+        String type = getIntent().getStringExtra("type");
+        String pmId = getIntent().getStringExtra("pmId");
+        String pCampaignType = getIntent().getStringExtra("campaignType");
+        pCampaignType = pCampaignType != null ? pCampaignType : "GDPR";
+        CampaignType ct = CampaignType.valueOf(pCampaignType);
+
+        if(type != null && type.equals("pm")){
+            mSpConsentLib.loadPrivacyManager(pmId, PMTab.DEFAULT, ct);
+        }else {
+            mSpConsentLib.loadMessage();
+        }
     }
 
     public void disposeCmpLib(){
@@ -67,6 +75,11 @@ public class CMPActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         disposeCmpLib();
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
     class LocalClient implements SpClient {

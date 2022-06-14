@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [What we are aiming for](#what-we-are-aiming-for)
+- [Compatibility](#compatibility)
 - [How to Install the CMP SDK](#how-to-install-the-cmp-sdk)
 - [The support CmpMainActivity](#the-support-CmpMainActivity)
 - [Load the First Layer Message](#load-the-first-layer-message)
@@ -18,6 +19,9 @@ which is used from the ReactNative framework.
 Following the final result:
 
 <img src="soft_main.png" width=20% height=20%/> <img src="soft_gdpr.png" width=20% height=20%/> <img src="soft_ccpa.png" width=20% height=20%/>
+
+#Compatibility
+The Soft Integration can be used with versions prior to the `v6.6.1`
 
 ## How to Install the CMP SDK
 To use `cmplibrary` in your ReactNative app, include `com.sourcepoint.cmplibrary:cmplibrary:x.y.z` as a dependency to 
@@ -231,8 +235,81 @@ The reason why we use the `onCreate` callback in the `Soft Integratio` is that w
 for instance, the FLM contains a `Cancel` button.
 
 ## Load the Privacy Manager
+The FLM requires is triggered invoking the `loadMessage` from the `onResume` callback
 
+```java
+    @Override
+    protected void onResume() {
+      // ...
+      mSpConsentLib.loadMessage();
+      // ...
+    }
+```
 
+## Load the Privacy Manager
 
+The surfacing process of a PM involve the communication between the common ReactNative layer and the mobile native part.
+To overcome the cross-platform communication challenge we make use of the [Native Modules](https://reactnative.dev/docs/native-modules-intro)
 
-  
+### The Android Native Modules
+
+The first step, is the creation of the function that you need on native part like an implementation on native apps. We will create a file called `SpModule` on the android side of our React Native app.
+
+The `SpModule` has all the functions that we need to expose to the Javascript side. In our example, we have three
+buttons, two of them surface a GDPR and a CCPA Privacy Manager and one of them is clearing the saved local data:
+- `showCcpaPm`: surfaces the CCPA PM,
+- `showGdprPm`: surfaces the GDPR PM,
+- `clearData`: deletes local data.
+
+```java
+public class SpModule extends ReactContextBaseJavaModule {
+
+    // ...
+
+    SpModule(ReactApplicationContext context) {
+        super(context);
+    }
+
+    @NonNull
+    @Override
+    public String getName() {
+        return "SpModule";
+    }
+
+    @ReactMethod
+    public void showGdprPm() {
+      // ...
+    }
+
+    @ReactMethod
+    public void showCcpaPm() {
+        // ...
+    }
+
+    @ReactMethod
+    public void clearData() {
+        SpUtils.clearAllData(getCurrentActivity());
+    }
+}
+```
+
+## Calling native module from Javascript
+
+To be able to execute the native methods, we need to use the NativeModules from react-native.
+
+In your `App.js` file import the module that we just created:
+
+```javascript
+import { NativeModules } from 'react-native';
+const { SpModule } = NativeModules;
+```
+
+Now you can invoke the functions using the `SpModule` object as follows:
+
+```javascript
+  // ...
+  <Button title="Show GDPR Privacy Manager" onPress={() => SpModule.showGdprPm() } />
+  <Button title="Show CCPA Privacy Manager" onPress={() => SpModule.showCcpaPm() } />
+  <Button title="Clear All Data" onPress={() => SpModule.clearData() } />
+  // ...
+```

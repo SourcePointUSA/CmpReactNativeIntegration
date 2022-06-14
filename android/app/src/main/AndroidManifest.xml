@@ -28,6 +28,5 @@
                 android:theme="@style/Theme.AppCompat.Transparent.NoActionBar"
                 android:exported="false"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-
     </application>
 </manifest>
